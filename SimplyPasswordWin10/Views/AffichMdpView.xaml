@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.AffichMdpView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:SimplyPasswordWin10.Converter"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <converter:BoolVisibilityConverter x:Key="ConverterBoolVisible"/>
+        <converter:BoolCheckedConverter x:Key="ConverterBoolChecked"/>
+
+        <MenuFlyout x:Key="ShareFlyOut">
+            <MenuFlyoutItem x:Uid="textPartageFichier" Click="ShareFichier_Click" />
+            <MenuFlyoutItem x:Uid="textPartageTexte" Click="ShareTexte_Click"/>
+        </MenuFlyout>
+    </Page.Resources>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="ShareButton" x:Uid="labelPartager" Flyout="{StaticResource ShareFlyOut}" HorizontalAlignment="Left" Icon="ReShare" VerticalAlignment="Top" IsCompact="True"/>
+                <AppBarButton x:Name="ModifierButton"  x:Uid="modifierButton" HorizontalAlignment="Left" Icon="Edit" VerticalAlignment="Top" IsCompact="True" Click="EditButton_Click"/>
+                <AppBarButton x:Name="DeplacerButton" x:Uid="deplacerButton" HorizontalAlignment="Right" Icon="MoveToFolder"  VerticalAlignment="Top" IsCompact="True" Click="ChangePathButton_OnClickButton_Click"/>
+                <AppBarButton x:Name="SupprimerButton" x:Uid="supprimerButton" HorizontalAlignment="Right" Icon="Clear" VerticalAlignment="Top" IsCompact="True" Click="SupButton_Click"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid>
+
+        <Grid Background="Gainsboro" Margin="0,0,0,10" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="GridTitre" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="#FF009662" Margin="0,0,-0,0">
+            <Grid HorizontalAlignment="Left">
+                <TextBlock Text="{x:Bind ViewModel.Password.Titre,Mode=OneWay}" Margin="74,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" TextAlignment="Center" HorizontalAlignment="Left"/>
+                <Image Source="{x:Bind ViewModel.Password.Icone}" HorizontalAlignment="Left" Height="45" Margin="10,0,0,0" Width="45" VerticalAlignment="Top"/>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="1" Margin="0" MaxWidth="700" HorizontalAlignment="Center">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock x:Uid="textIdentifiant" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
+                    <TextBlock Text="{x:Bind ViewModel.Password.Login,Mode=OneWay}" Margin="10,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15"/>
+                    <Button x:Name="CopyIdentifiantButton" x:Uid="contentCopieID" HorizontalAlignment="Left" Margin="10,5,10,0" VerticalAlignment="Top" FontSize="14" Click="CopyIdentifiantButton_Click" Foreground="Black"/>
+                    <ProgressBar x:Name="ProgressBarCopyLogin" HorizontalAlignment="Left" Height="12" Margin="10,5,10,0" VerticalAlignment="Top" Width="252" />
+
+                    <TextBlock x:Uid="mdp" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
+                    <TextBlock Text="{x:Bind ViewModel.PasswordToAffich,Mode=OneWay}" Margin="10,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15"/>
+                    <CheckBox IsChecked="{x:Bind ViewModel.PasswordReveal,Mode=TwoWay,Converter={StaticResource ConverterBoolChecked}}" x:Uid="contentAfficherMDP" HorizontalAlignment="Left" Margin="10,5,10,0" VerticalAlignment="Top" Width="193" Foreground="Black"/>
+                    <Button x:Name="CopyPasswordButton" x:Uid="contentCopieMDP" HorizontalAlignment="Left" Margin="10,5,10,0" VerticalAlignment="Top" FontSize="14" Click="copyPasswordButton_Click" Foreground="Black"/>
+                    <ProgressBar x:Name="ProgressBarCopyPassword" HorizontalAlignment="Left" Height="12" Margin="10,5,10,0" VerticalAlignment="Top" Width="252" />
+
+                    <TextBlock Visibility="{x:Bind ViewModel.IsSiteVisible,Mode=OneWay,Converter={StaticResource ConverterBoolVisible}}" x:Uid="siteText" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
+                    <TextBlock Visibility="{x:Bind ViewModel.IsSiteVisible,Mode=OneWay,Converter={StaticResource ConverterBoolVisible}}" Text="{x:Bind ViewModel.Password.SiteWeb}" Margin="10,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" Foreground="#FF3C42D1" Tapped="SiteWebTextBlock_Tapped"/>
+
+                    <TextBlock Visibility="{x:Bind ViewModel.IsCommentVisible,Mode=OneWay,Converter={StaticResource ConverterBoolVisible}}" x:Uid="textCommentaire" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
+                    <TextBlock Visibility="{x:Bind ViewModel.IsCommentVisible,Mode=OneWay,Converter={StaticResource ConverterBoolVisible}}" Text="{x:Bind ViewModel.Password.Commentaire,Mode=OneWay}" Margin="10,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15"/>
+                    <ProgressRing x:Name="WaitRing" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        </Grid>
+
+
+        <!--Dlg de choix du dossier-->
+        <ContentDialog x:Name="SelectDossierContentDialog" x:Uid="dialogSelectFolder" PrimaryButtonClick="ChoixDossier_PrimaryButtonClick" SecondaryButtonClick="ChoixDossier_SecondaryButton">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid Grid.Row="0">
+                    <AppBarButton Visibility="{x:Bind ViewModel.IsParentVisible,Mode=OneWay,Converter={StaticResource ConverterBoolVisible}}" HorizontalAlignment="Left" IsCompact="True" VerticalAlignment="Top" Click="dossierParentButton_Click" FontFamily="Global User Interface" Icon="Back" RenderTransformOrigin="0.5,0.5" Width="Auto" Margin="15,0,0,0">
+                        <AppBarButton.RenderTransform>
+                            <CompositeTransform Rotation="90"/>
+                        </AppBarButton.RenderTransform>
+                    </AppBarButton>
+                    <TextBlock Text="{x:Bind ViewModel.DossierEncours.Titre,Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0" FontFamily="Global User Interface" FontSize="18" TextWrapping="WrapWholeWords"/>
+                </Grid>
+
+                <ListView ItemsSource="{x:Bind ViewModel.ListeDossierAffiche,Mode=OneWay}" Grid.Row="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.087,0.441" Text="{Binding Titre}" Tag="{Binding}" Tapped="SelectDossierForMdp_Tapped"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ContentDialog>
+     </Grid>
+</Page>

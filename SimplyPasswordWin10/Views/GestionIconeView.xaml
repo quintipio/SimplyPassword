@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.GestionIconeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Gainsboro" Margin="0,0,0,10" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="GridTitre" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="#FF009662" Margin="0,0,-0,0">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Uid="textMesIcones" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="25" TextAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+
+
+            <Grid  Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Uid="contentAjouterIcon" HorizontalAlignment="Center" Click="AjouterIcone_Click"/>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+                <ListView ItemsSource="{x:Bind ViewModel.ListeIconePerso,Mode=OneWay}"  SelectionMode="None" Foreground="White" Padding="20" HorizontalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="400">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Height="45" Width="45" Source="{Binding Value,Mode=OneWay}"/>
+                                <Button Grid.Column="1" x:Uid="contentSupprimer" Click="SupprimerIcone_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="{Binding Key,Mode=OneWay}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Grid>
+        
+        
+    </Grid>
+</Page>

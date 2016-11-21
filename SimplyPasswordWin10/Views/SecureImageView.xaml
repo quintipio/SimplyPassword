@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.SecureImageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:SimplyPasswordWin10.Converter"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <converter:BoolImageConverter x:Key="ConverterBoolImage"/>
+        <converter:BoolVisibilityConverter x:Key="ConverterBoolVisibility"/>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+    <Grid Background="Gainsboro" Margin="0,0,0,10" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="650">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="GridTitre" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="#FF009662" Margin="0,0,0,0">
+                <Grid HorizontalAlignment="Left">
+                    <Image Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/icon.png" />
+                    <TextBlock x:Uid="textDebloquagePass"  FontSize="26.667" Margin="60,10,0,0"/>
+                </Grid>
+            </Grid>
+
+        <Grid Grid.Row="1" Margin="0,0,15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="GridChargement" Grid.Row="0" Margin="0" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Source="{x:Bind ViewModel.EtapeUnOk,Mode=OneWay,Converter={StaticResource ConverterBoolImage}}" Width="30" Height="30" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Uid="textChargerImage" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <StackPanel Grid.Row="0" Grid.Column="3">
+                        <Button x:Uid="contentCharger" VerticalAlignment="Top" Height="30" HorizontalAlignment="Center" Click="LoadFile_Click"  />
+                        <TextBlock Text="{x:Bind ViewModel.ErreurEtapeUn,Mode=OneWay}" Foreground="DarkRed" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <Image Source="{x:Bind ViewModel.EtapeDeuxOk,Mode=OneWay,Converter={StaticResource ConverterBoolImage}}" Width="30" Height="30"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Uid="textSelectPoint" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,19,54,11" TextWrapping="Wrap"/>
+                    <Button x:Uid="contentValider" IsEnabled="{x:Bind ViewModel.NbPointsOk,Mode=OneWay}" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,75,0" Click="Valid_EtapeDeux_Click" />
+                    <Button x:Uid="contentEffacer" IsEnabled="{x:Bind ViewModel.EtapeUnOk,Mode=OneWay}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Margin="75,0,0,0" Click="EffacePoint_Click" />
+                <TextBlock Text="{x:Bind ViewModel.ErreurEtapeDeux,Mode=OneWay}" Foreground="DarkRed" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,30,0,0"  TextWrapping="Wrap"/>
+
+                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                     <Button x:Uid="contentValiderTerminer" Grid.Column="0" IsEnabled="{x:Bind ViewModel.EtapeDeuxOk,Mode=OneWay}" Margin="10,0" Click="SaveAndQuit_Click" />
+                    <Button x:Uid="contentAnnuler" Grid.Column="1" VerticalAlignment="Bottom" Click="Quit_click" Margin="10,0"/>
+                    <Button x:Uid="contentSupprimerTerminer" Grid.Column="2"  Margin="10,0" Click="DeleteAndQuit_Click"/>
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="GridDeblocage" Grid.Row="0" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" x:Uid="textEntrePoint" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,10,10"/>
+                <Grid Grid.Row="1" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Uid="contentVerifier" Grid.Column="0" HorizontalAlignment="Center" Margin="0,0,100,0" Click="ValidVerifMotDePasse_Click"/>
+                    <Button x:Uid="contentRecommencer" Grid.Column="1" VerticalAlignment="Bottom" Click="EffacePoint_Click" Margin="10,0"/>
+                    <Button x:Uid="contentAnnuler" Grid.Column="2" HorizontalAlignment="Center" Margin="100,0,0,0" Click="AnnuleVerifMotDePasse_Click"/>
+                </Grid>
+                    <TextBlock Text="{x:Bind ViewModel.ErreurVerif,Mode=OneWay}" Foreground="DarkRed" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0"  TextWrapping="Wrap"/>
+
+            </Grid>
+
+            <Grid Visibility="{x:Bind ViewModel.EtapeUnOk,Mode=OneWay,Converter={StaticResource ConverterBoolVisibility}}" Grid.Row="1" x:Name="GridImage" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" >
+                    <Image x:Name="ImageLock" Tapped="Image_Tapped" Source="{x:Bind ViewModel.ImageLock, Mode=OneWay}" Stretch="None"  />
+                </Grid>
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</Page>

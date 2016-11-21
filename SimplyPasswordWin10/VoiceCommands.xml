@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="fr" Name="SimplyPassword_CommandSet_fr">
+    <AppName>Simply password</AppName>
+    <Example>Affiche mes identifiants pour Facebook avec Simply Password</Example>
+      
+    <Command Name="showMotDePasse">
+      <Example>Affiche mes identifiants pour Facebook avec Simply Password</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase" >affiche mes identifiants [pour] {site}</ListenFor>
+      <Feedback>Je recherche... </Feedback>
+      <VoiceCommandService Target="PasswordService"/>
+    </Command>
+    
+    <PhraseTopic Label="site">
+      <Subject>Facebook</Subject>
+      <Subject>Google</Subject>
+    </PhraseTopic>
+
+  </CommandSet>
+
+  <CommandSet xml:lang="en" Name="SimplyPassword_CommandSet_en">
+    <AppName>Simply password</AppName>
+    <Example>Display my Facebook login with Simply Password</Example>
+      
+    <Command Name="showMotDePasse">
+      <Example>Display my Facebook login with Simply Password</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase" >Display [my] {site} login</ListenFor>
+      <Feedback>I am looking...</Feedback>
+      <VoiceCommandService Target="PasswordService"/>
+    </Command>
+    
+    <PhraseTopic Label="site">
+      <Subject>Facebook</Subject>
+      <Subject>Google</Subject>
+    </PhraseTopic>
+
+  </CommandSet>
+
+  <CommandSet xml:lang="es" Name="SimplyPassword_CommandSet_es">
+    <AppName>Simply password</AppName>
+    <Example>Muestra mi inicio de sesión Facebook con Simply password</Example>
+      
+    <Command Name="showMotDePasse">
+      <Example>Muestra mi inicio de sesión Facebook con Simply password</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase" >Muestra [mi] inicio de sesión {site}</ListenFor>
+      <Feedback>Estoy buscando...</Feedback>
+      <VoiceCommandService Target="PasswordService"/>
+    </Command>
+    
+    <PhraseTopic Label="site">
+      <Subject>Facebook</Subject>
+      <Subject>Google</Subject>
+    </PhraseTopic>
+
+  </CommandSet>
+
+  <CommandSet xml:lang="pt" Name="SimplyPassword_CommandSet_pt">
+    <AppName>Simply password</AppName>
+    <Example>Simply Password, Exibe o meu login para Facebook</Example>
+      
+    <Command Name="showMotDePasse">
+      <Example>Simply Password, Exibe o meu login para Facebook</Example>
+      <ListenFor RequireAppName="BeforePhrase" >Exibe o meu login [para] {site}</ListenFor>
+      <Feedback>Eu estou procurando...</Feedback>
+      <VoiceCommandService Target="PasswordService"/>
+    </Command>
+    
+    <PhraseTopic Label="site">
+      <Subject>Facebook</Subject>
+      <Subject>Google</Subject>
+    </PhraseTopic>
+  </CommandSet>
+</VoiceCommands>

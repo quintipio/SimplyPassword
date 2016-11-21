@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.ParamsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:SimplyPasswordWin10.Converter"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Storyboard x:Name="StoryboardOuvertueGenerateur">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="GridGenerateur">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="320"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="StoryboardFermetureGenerateur">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="GridGenerateur">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <converter:BoolVisibilityConverter x:Key="ConverterBoolVisible"/>
+    </Page.Resources>
+    <Grid Background="Gainsboro" Margin="0,0,0,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="GridTitre" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="#FF009662" Margin="0,0,0,0">
+            <Grid HorizontalAlignment="Left">
+                <Image Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/icon.png" />
+                <TextBlock x:Uid="textParam" FontSize="26.667" Margin="60,10,0,0"/>
+            </Grid>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"  Margin="0,0,15,0" MaxWidth="500" HorizontalAlignment="Center" >
+            <StackPanel Margin="20,0">
+                <Grid Margin="10,10,10,0" BorderBrush="Black" BorderThickness="2" Height="441">
+                    <TextBlock x:Uid="textAncienMDP" HorizontalAlignment="Left" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="13.333" FontWeight="Bold"/>
+                    <PasswordBox Password="{x:Bind ViewModel.OldMdp, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,30,19,0" VerticalAlignment="Top" Foreground="Black" Width="187" FontSize="15" Height="32"/>
+                    <TextBlock  x:Uid="textNouveauMDP" HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="13.333" FontWeight="Bold" Height="19"/>
+                    <PasswordBox x:Name="TextBoxNouveauMdp" Password="{x:Bind ViewModel.NewMdp, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,97,21,0" VerticalAlignment="Top" Foreground="Black" Width="187" Height="33" KeyUp="TextBoxNouveauMdp_KeyUp"/>
+                    <TextBlock x:Uid="textForce" HorizontalAlignment="Left" Margin="10,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" FontSize="15" Foreground="Black" Height="20" />
+                    <ProgressBar Value="{x:Bind ViewModel.ForceMdp, Mode=OneWay}" HorizontalAlignment="Left" Height="21" Margin="132,146,0,0" VerticalAlignment="Top" Width="127" Foreground="Black" Canvas.ZIndex="900" RenderTransformOrigin="0.823,0.413"/>
+                    <Button  x:Uid="contentGenerer" HorizontalAlignment="Right" Margin="0,175,18,0" VerticalAlignment="Top" Foreground="Black" FontSize="15" Click="buttonGenerer_Click" Canvas.ZIndex="900"/>
+                    <TextBlock x:Uid="textConfirmation" HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="13.333" FontWeight="Bold" Height="18"/>
+                    <PasswordBox x:Name="TextBoxConfirmation" Password="{x:Bind ViewModel.Confirmation, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,251,14,0" VerticalAlignment="Top" Foreground="Black" Width="187" Canvas.ZIndex="900" Height="33"/>
+                    <Button x:Uid="contentValider" HorizontalAlignment="Center" Margin="0,298,0,0" VerticalAlignment="Top" Width="150" Foreground="Black" FontSize="15" Click="buttonValider_Click" Canvas.ZIndex="900"/>
+                    <TextBlock x:Name="TextCapsLock" x:Uid="textCapsLock"  Margin="10,328,0,0" TextWrapping="Wrap" Foreground="#FFDC2121" Visibility="Collapsed"/>
+                    <TextBlock x:Name="TextError" Margin="10,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFE22828"/>
+                    <Grid x:Name="GridGenerateur" HorizontalAlignment="Right" Height="0" Margin="0,130,21,0" VerticalAlignment="Top" Width="183" Canvas.ZIndex="1000" Background="WhiteSmoke">
+                        <CheckBox x:Name="CheckLettres" x:Uid="contentCheckLettres" HorizontalAlignment="Left" Margin="7,22,0,0" VerticalAlignment="Top"/>
+                        <CheckBox x:Name="CheckChiffres" x:Uid="contentCheckChiffres" HorizontalAlignment="Left" Margin="7,65,0,0" VerticalAlignment="Top"/>
+                        <CheckBox x:Name="CheckSpec" x:Uid="contentCheckSpec" HorizontalAlignment="Left" Margin="7,104,0,0" VerticalAlignment="Top"/>
+                        <Slider x:Name="LongueurSlider" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="170" Height="30" Maximum="32" Orientation="Horizontal" ValueChanged="sliderTailleMdp_ValueChanged"/>
+                        <Button x:Uid="contentGenerer" Content="" HorizontalAlignment="Left" Margin="7,197,0,-3" VerticalAlignment="Top" Height="42" Width="176" Click="buttonGenererAction_Click"/>
+                        <TextBlock x:Name="TextLongGen" HorizontalAlignment="Left" Margin="10,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="46"/>
+                    </Grid>
+                </Grid>
+
+                <Grid  Margin="10,10,10,0" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock TextWrapping="Wrap" x:Uid="textListeLangue" VerticalAlignment="Top" FontSize="18"/>
+                    <ComboBox ItemsSource="{x:Bind ViewModel.ListeLangue,Mode=OneWay}" x:Name="ComboListeLangue" Margin="0,30,0,0" VerticalAlignment="Top" SelectionChanged="comboListeLangue_SelectionChanged"/>
+                    <TextBlock x:Uid="RedemarrageRequisText" Margin="0,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#FFCF2424"/>
+                </Grid>
+
+                <StackPanel x:Name="StackPanelSecurite" Margin="10,10,10,0" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock TextWrapping="Wrap" x:Uid="textSecurite" FontSize="18" Text="Sécurité..."/>
+                    <CheckBox x:Name="CheckboxCortana" IsChecked="{x:Bind ViewModel.CortanaActive,Mode=TwoWay}" x:Uid="contentSecurite" Content="Enregistrement du mot de passe..." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                    <TextBlock x:Uid="textSecuriteDesc" Margin="0,5,0,0" TextWrapping="Wrap" Foreground="Black" Text="En activant cette option, vous pourrez lire directement vos mots de passe depuis Cortana, et activer l'option de récupération de mot de passe à l'écran d'acceuil en cas de perte."/>
+                    <Button Visibility="{x:Bind ViewModel.CortanaActive,Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}" x:Uid="ParamRecupContent" Content="Paramétrage de la récup du mot de passe" Margin="0,5,0,0" HorizontalAlignment="Center" Click="RecupMdp_Click"/>
+                </StackPanel>
+
+                <Grid Margin="10,10,10,0" BorderThickness="2" BorderBrush="Black" >
+                    <TextBlock TextWrapping="Wrap" x:Uid="textCouleur" VerticalAlignment="Top" FontSize="18" Margin="0"/>
+
+                    <GridView ItemsSource="{x:Bind ViewModel.ListeCouleur,Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionMode="None" Margin="0,30,0,0">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Rectangle HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Width="40" Height="40" StrokeThickness="3" Stroke="Black" Fill="{Binding}" Tag="{Binding}" Tapped="Rectangle_Tapped" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

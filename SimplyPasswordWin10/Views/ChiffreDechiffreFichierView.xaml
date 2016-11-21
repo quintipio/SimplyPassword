@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.ChiffreDechiffreFichierView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Name="StoryboardOuvertueGenerateur">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="GridGenerateur">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="320"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="StoryboardFermetureGenerateur">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="GridGenerateur">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid Background="Gainsboro" Margin="0,0,0,10" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="GridTitre" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="#FF009662" Margin="0,0,-0.429,0">
+                <Grid HorizontalAlignment="Left">
+                    <Image Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/icon.png" />
+                    <TextBlock x:Name="TitrePage" FontSize="26.667" Margin="60,10,0,0"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0" HorizontalAlignment="Center" MaxWidth="700">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        
+                        <Grid Margin="0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="InputFileTextBlock" Grid.Row="0" Grid.ColumnSpan="2" Text="Input file" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="WrapWholeWords" VerticalAlignment="Center" x:Name="InputFileText"/>
+                            <Button x:Uid="contentParcourir" Content="Parcourir" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Click="OpenParcourirInput_Click"/>
+                        </Grid>
+
+                        <Grid Margin="0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="OutputFileTextBlock" Grid.Row="0" Grid.ColumnSpan="2" Text="Output file" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="WrapWholeWords" VerticalAlignment="Center" x:Name="OutputFileText"/>
+                            <Button x:Name="OutputParcourir" x:Uid="contentParcourir" Content="Parcourir" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Click="OpenParcourirOutput_Click"/>
+                        </Grid>
+
+                        <Grid Margin="0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Uid="mdp" Grid.Row="0" Grid.Column="0" Text="Mot de passe" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <PasswordBox x:Name="MdpPasswordBox" Grid.Row="0" Grid.Column="1" Password="{x:Bind ViewModel.Password,Mode=TwoWay}" Width="200" KeyUp="MdpPasswordBox_KeyUp"/>
+                            <TextBlock x:Name="TextCapsLock" Grid.Row="1" Grid.ColumnSpan="2" x:Uid="textCapsLock"  Margin="0" TextWrapping="Wrap" Foreground="#FFDC2121" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Uid="textForce" Grid.Row="2" Grid.Column="0" Text="Force"/>
+                            <ProgressBar  Grid.Row="2" Grid.Column="1" Value="{x:Bind ViewModel.Force,Mode=OneWay}" Height="15"/>
+                            <Button x:Uid="contentGenerer" Content="Génerer" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="OpenGenerer_Click" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                        </Grid>
+                        <Grid x:Name="GridGenerateur" HorizontalAlignment="Center" Height="0" VerticalAlignment="Top" Width="183" Canvas.ZIndex="1000" Background="WhiteSmoke">
+                            <CheckBox x:Name="CheckLettres" x:Uid="contentCheckLettres" HorizontalAlignment="Left" Margin="7,22,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="CheckChiffres" x:Uid="contentCheckChiffres" HorizontalAlignment="Left" Margin="7,65,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="CheckSpec" x:Uid="contentCheckSpec" HorizontalAlignment="Left" Margin="7,104,0,0" VerticalAlignment="Top"/>
+                            <Slider x:Name="LongueurSlider" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="170" Height="30" Maximum="32" Orientation="Horizontal" ValueChanged="sliderTailleMdp_ValueChanged"/>
+                            <Button x:Uid="contentGenerer" Content="" HorizontalAlignment="Left" Margin="7,197,7,0" VerticalAlignment="Top" Height="42" Width="176" Click="buttonGenererAction_Click"/>
+                            <TextBlock x:Name="TextLongGen" HorizontalAlignment="Left" Margin="10,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="46"/>
+                        </Grid>
+
+
+                        <Button x:Name="ValiderButton" Content="Valider" Click="LanceAction_Click" Margin="0,10" HorizontalAlignment="Center"/>
+                        <ProgressRing x:Name="RingWait" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="41" Width="20"/>
+                    </StackPanel>
+                    
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Page>

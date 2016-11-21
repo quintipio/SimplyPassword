@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.StartPageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  >
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="ButtonRecupPass" x:Uid="labelRecupMdp" FontSize="12" Click="buttonRecup_Click" Icon="Permissions"/>
+                <AppBarButton x:Name="ButtonQuitter" x:Uid="labelQuitter" FontSize="12" Click="buttonQuitter_Click" Icon="Cancel"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="ButtonReinit" x:Uid="labelReinit" FontSize="12" Click="buttonReinit_Click" Icon="Refresh"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="StackTitre" Grid.Row="0" Margin="0,0,0,0">
+            <TextBlock Text="{x:Bind ViewModel.NomPage, Mode=OneWay}" x:Uid="mdp" Margin="0,0,0,0" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Height="68" LineHeight="0"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" Margin="0,10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center">
+            <StackPanel>
+
+                 <TextBlock x:Name="TextTitre" x:Uid="mdp" Margin="10,0,20,0" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" LineHeight="0" VerticalAlignment="Top" Height="70" MaxWidth="300"/>
+
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" x:Uid="textVotreMDP" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Height="25"/>
+                    <PasswordBox x:Name="PasswordBoxMdp" Grid.Column="1" Password="{x:Bind ViewModel.MotDePasseA, Mode=TwoWay}" VerticalAlignment="Top" FontSize="16" KeyUp="passwordBoxMdp_KeyUp" TabIndex="3000"/>
+                </Grid>
+
+                <Grid Margin="10" x:Name="GridConfirm">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" x:Uid="textConfirmation" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top"/>
+                    <PasswordBox Grid.Column="1" x:Name="PasswordBoxConfirm" Password="{x:Bind ViewModel.MotDePasseB, Mode=TwoWay}" VerticalAlignment="Top" FontSize="16" KeyUp="passwordBoxConfirm_KeyUp" TabIndex="4000"/>
+                </Grid>
+
+                <ProgressBar x:Name="ProgressBarForce" Margin="10" VerticalAlignment="Top" Height="18" Value="{x:Bind ViewModel.ForceMdp, Mode=OneWay}"/>
+                <Button x:Name="ValidMdp" x:Uid="contentValider" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" MinWidth="75"  Click="validMdp_Click"/>
+                <TextBlock x:Name="TextCapsLock" x:Uid="textCapsLock"  Margin="10" TextWrapping="Wrap" Foreground="#FFDC2121" Visibility="Collapsed"/>
+                <TextBlock x:Name="TextError" Margin="10" TextWrapping="Wrap" Foreground="#FFDC2121"/>
+                <ProgressRing x:Name="RingWait" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" Height="41" Width="20"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="APPD" xml:space="preserve">
+    <value>Sobre ...</value>
+  </data>
+  <data name="changeDossier.Content" xml:space="preserve">
+    <value>Alterar pasta</value>
+  </data>
+  <data name="contentAfficherMDP.Content" xml:space="preserve">
+    <value>Ver senha</value>
+  </data>
+  <data name="contentAnnuler.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="contentAPPD.Content" xml:space="preserve">
+    <value>Sobre ....</value>
+  </data>
+  <data name="contentChangeLangues.Content" xml:space="preserve">
+    <value>Alterar idioma</value>
+  </data>
+  <data name="contentChangerMDP.Content" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="contentCheckChiffres.Content" xml:space="preserve">
+    <value>Números</value>
+  </data>
+  <data name="contentCheckLettres.Content" xml:space="preserve">
+    <value>Cartas</value>
+  </data>
+  <data name="contentCheckSpec.Content" xml:space="preserve">
+    <value>Caracteres especiais</value>
+  </data>
+  <data name="contentCopieID.Content" xml:space="preserve">
+    <value>Entre Copiar para o clipboard</value>
+  </data>
+  <data name="contentCopieMDP.Content" xml:space="preserve">
+    <value>Copiar a senha para o clipboard</value>
+  </data>
+  <data name="contentExporter.Content" xml:space="preserve">
+    <value>Exportação</value>
+  </data>
+  <data name="contentGenerer.Content" xml:space="preserve">
+    <value>Gerar</value>
+  </data>
+  <data name="contentImporter.Content" xml:space="preserve">
+    <value>Importação</value>
+  </data>
+  <data name="contentParcourir.Content" xml:space="preserve">
+    <value>Viagem</value>
+  </data>
+  <data name="contentRate.Content" xml:space="preserve">
+    <value>Observe o app</value>
+  </data>
+  <data name="contentSuggestBug.Content" xml:space="preserve">
+    <value>Bugs, sugestões?</value>
+  </data>
+  <data name="contentValider.Content" xml:space="preserve">
+    <value>Validar</value>
+  </data>
+  <data name="deplacerButton.Content" xml:space="preserve">
+    <value>Jogada</value>
+  </data>
+  <data name="deplacerButton.Label" xml:space="preserve">
+    <value>Jogada</value>
+  </data>
+  <data name="deplacerText.Text" xml:space="preserve">
+    <value>Mover-se para:</value>
+  </data>
+  <data name="deplacerVers" xml:space="preserve">
+    <value>Mover-se para:</value>
+  </data>
+  <data name="dossier.Text" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="dossierPivot.Header" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="eraseDossier.Content" xml:space="preserve">
+    <value>Substituir o arquivo e substituí-lo com a importação.</value>
+  </data>
+  <data name="labelAPPD.Label" xml:space="preserve">
+    <value>Sobre ....</value>
+  </data>
+  <data name="labelBugSuggest.Label" xml:space="preserve">
+    <value>Bugs, sugestões?</value>
+  </data>
+  <data name="labelChangeLangues.Label" xml:space="preserve">
+    <value>Alterar idioma</value>
+  </data>
+  <data name="labelChangerMDP.Label" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="labelExport.Label" xml:space="preserve">
+    <value>Exportar esta pasta</value>
+  </data>
+  <data name="labelExporter.Label" xml:space="preserve">
+    <value>Exportação</value>
+  </data>
+  <data name="labelImport.Label" xml:space="preserve">
+    <value>Importação nesta pasta</value>
+  </data>
+  <data name="labelImporter.Label" xml:space="preserve">
+    <value>Importação</value>
+  </data>
+  <data name="labelParametres.Label" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="labelQuitter.Label" xml:space="preserve">
+    <value>Deixar</value>
+  </data>
+  <data name="labelRate.Label" xml:space="preserve">
+    <value>Observe o app</value>
+  </data>
+  <data name="labelReinit.Label" xml:space="preserve">
+    <value>Aplicação de reset</value>
+  </data>
+  <data name="mdp.Text" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="mdpPivot.Header" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="modifierButton.Content" xml:space="preserve">
+    <value>Mudança</value>
+  </data>
+  <data name="modifierButton.Label" xml:space="preserve">
+    <value>Mudança</value>
+  </data>
+  <data name="OutilsContent.Content" xml:space="preserve">
+    <value>Ferramentas</value>
+  </data>
+  <data name="parametres" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="ParametresContent.Content" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="phraseAcceuilExistant" xml:space="preserve">
+    <value>Por favor insira sua senha de acesso ao aplicativo</value>
+  </data>
+  <data name="phraseAcceuilNouveau" xml:space="preserve">
+    <value>Por favor digite sua nova senha para acesso ao aplicativo</value>
+  </data>
+  <data name="phraseAjout" xml:space="preserve">
+    <value>Adicionado</value>
+  </data>
+  <data name="phraseAnnuler" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="phraseAttention" xml:space="preserve">
+    <value>Atenção</value>
+  </data>
+  <data name="phraseAvertissementReinit" xml:space="preserve">
+    <value>Cuidado Isso apagará todas as suas configurações e senhas, definitivamente. Tem certeza de que deseja continuar?</value>
+  </data>
+  <data name="phraseAvertissementSupDossier" xml:space="preserve">
+    <value>Aviso apagar a pasta, você também exclui todos os seus conteúdos, que deseja continuar?</value>
+  </data>
+  <data name="phraseChangementEffectue" xml:space="preserve">
+    <value>As alterações feitas</value>
+  </data>
+  <data name="phraseDemandeFormat" xml:space="preserve">
+    <value>Você deve primeiro especificar um formato de exportação</value>
+  </data>
+  <data name="phraseDemandeInput" xml:space="preserve">
+    <value>Devemos, primeiramente, indicou um arquivo de entrada</value>
+  </data>
+  <data name="phraseEffacerMDP" xml:space="preserve">
+    <value>Atenção! Isto irá apagar permanentemente a senha. Quer continuar?</value>
+  </data>
+  <data name="phraseExpExport" xml:space="preserve">
+    <value>Exportar os dados na pasta atualmente usada</value>
+  </data>
+  <data name="phraseExpImport" xml:space="preserve">
+    <value>Importe os dados na pasta atualmente usada</value>
+  </data>
+  <data name="phraseExporter" xml:space="preserve">
+    <value>Exportação</value>
+  </data>
+  <data name="phraseImporter" xml:space="preserve">
+    <value>Importação</value>
+  </data>
+  <data name="phraseModification" xml:space="preserve">
+    <value>Modificação</value>
+  </data>
+  <data name="phraseModifierDossier" xml:space="preserve">
+    <value>Editar pasta</value>
+  </data>
+  <data name="phraseNon" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="phraseNouveauDossier" xml:space="preserve">
+    <value>Nova pasta</value>
+  </data>
+  <data name="phraseOK" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="phraseOui" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="phraseRacine" xml:space="preserve">
+    <value>Raiz</value>
+  </data>
+  <data name="pivotParametres.Header" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="QuitterContent.Content" xml:space="preserve">
+    <value>Deixar</value>
+  </data>
+  <data name="RedemarrageRequisText.Text" xml:space="preserve">
+    <value>A mudança completa neste cenário será refletido após a reinicialização do aplicativo</value>
+  </data>
+  <data name="siteText.Text" xml:space="preserve">
+    <value>Website:</value>
+  </data>
+  <data name="Suggest" xml:space="preserve">
+    <value>Bugs, sugestões?</value>
+  </data>
+  <data name="supprimerButton.Content" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="supprimerButton.Label" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="textAjouter.Label" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="textAncienMDP.Text" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="textAPPD.Text" xml:space="preserve">
+    <value>Sobre ...</value>
+  </data>
+  <data name="textChangerLangues.Title" xml:space="preserve">
+    <value>Alterar idioma</value>
+  </data>
+  <data name="textChangerMDP.Title" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="textChangerMDPWP.Text" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="textChiffre.Text" xml:space="preserve">
+    <value>Arquivo Encrypt</value>
+  </data>
+  <data name="textChiffreFichier" xml:space="preserve">
+    <value>Arquivo Encrypt</value>
+  </data>
+  <data name="textChiffrementOk" xml:space="preserve">
+    <value>Criptografia feita</value>
+  </data>
+  <data name="textChiffrer" xml:space="preserve">
+    <value>Cifrar</value>
+  </data>
+  <data name="textCommentaire.Text" xml:space="preserve">
+    <value>Comentário</value>
+  </data>
+  <data name="textConfirmation.Text" xml:space="preserve">
+    <value>Confirmação</value>
+  </data>
+  <data name="textConsultation.Text" xml:space="preserve">
+    <value>Consulta</value>
+  </data>
+  <data name="textCouleur.Text" xml:space="preserve">
+    <value>Cor:</value>
+  </data>
+  <data name="textDechiffre.Text" xml:space="preserve">
+    <value>Descriptografar um arquivo</value>
+  </data>
+  <data name="textDechiffreFichier" xml:space="preserve">
+    <value>Descriptografar um arquivo</value>
+  </data>
+  <data name="textDechiffrementOk" xml:space="preserve">
+    <value>Descriptografia realizada</value>
+  </data>
+  <data name="textDechiffrer" xml:space="preserve">
+    <value>Decifrar</value>
+  </data>
+  <data name="textDerniereModif" xml:space="preserve">
+    <value>Última Atualização</value>
+  </data>
+  <data name="textDerniereSynchro" xml:space="preserve">
+    <value>Última modificação:</value>
+  </data>
+  <data name="textDescApplication.Text" xml:space="preserve">
+    <value>Aplicação:</value>
+  </data>
+  <data name="textDescDeveloppeur.Text" xml:space="preserve">
+    <value>Desenvolvedor:</value>
+  </data>
+  <data name="textDescMentions.Text" xml:space="preserve">
+    <value>Legal:</value>
+  </data>
+  <data name="textDescNouveautes.Text" xml:space="preserve">
+    <value>Novidades:</value>
+  </data>
+  <data name="textDescVersion.Text" xml:space="preserve">
+    <value>Lançamento:</value>
+  </data>
+  <data name="textEN" xml:space="preserve">
+    <value>Inglês</value>
+  </data>
+  <data name="textES" xml:space="preserve">
+    <value>Espanol</value>
+  </data>
+  <data name="textEspaceOccupe" xml:space="preserve">
+    <value>Partilha espaço ocupado:</value>
+  </data>
+  <data name="textExport.Text" xml:space="preserve">
+    <value>Exportação</value>
+  </data>
+  <data name="textExportOK" xml:space="preserve">
+    <value>Exportação feito</value>
+  </data>
+  <data name="textFichier.Text" xml:space="preserve">
+    <value>Arquivo</value>
+  </data>
+  <data name="textFichierAChiffrer" xml:space="preserve">
+    <value>Criptografar arquivo:</value>
+  </data>
+  <data name="textFichierADechiffrer" xml:space="preserve">
+    <value>Decifrar arquivo:</value>
+  </data>
+  <data name="textFichierChiffrer" xml:space="preserve">
+    <value>Arquivo criptografado:</value>
+  </data>
+  <data name="textFichierDechiffrer" xml:space="preserve">
+    <value>Arquivo descriptografado:</value>
+  </data>
+  <data name="textForce.Text" xml:space="preserve">
+    <value>Vigor</value>
+  </data>
+  <data name="textFormat.Text" xml:space="preserve">
+    <value>Formato</value>
+  </data>
+  <data name="textFR" xml:space="preserve">
+    <value>Francês</value>
+  </data>
+  <data name="textIcone.Text" xml:space="preserve">
+    <value>Ícone</value>
+  </data>
+  <data name="textIdentifiant.Text" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="textImport.Text" xml:space="preserve">
+    <value>Importação</value>
+  </data>
+  <data name="textImportOK" xml:space="preserve">
+    <value>Importação feito</value>
+  </data>
+  <data name="textInformation" xml:space="preserve">
+    <value>Informações</value>
+  </data>
+  <data name="textLangues.Text" xml:space="preserve">
+    <value>Idiomas</value>
+  </data>
+  <data name="textListeLangue.Text" xml:space="preserve">
+    <value>Lista de idiomas</value>
+  </data>
+  <data name="textMentions.Text" xml:space="preserve">
+    <value>Um grande obrigado Ludivine Delfour Banc para a tradução em espanhol</value>
+  </data>
+  <data name="textNouveauMDP.Text" xml:space="preserve">
+    <value>Nova senha</value>
+  </data>
+  <data name="textNouveautes.Text" xml:space="preserve">
+    <value>versão 2.2:
+-Adicionando ícones personalizados
+-Adição da partilha de senhas
+-Gerenciamento de arquivos KWI
+-Correções de gráficas
+
+versão 2.1:
+- Adicionado a opção de recuperação de senha
+-Integração de Cortana ("Simply Password, Exibe o meu login para Facebook") (Será possível que depois de fazer pelo menos uma mudança de senhas)
+
+Versão 2.0.2:
+   - Adicionado Português
+   - Pequenas correções
+   - Adicionado uma política de privacidade
+
+Versão 2.0:
+    - Grandes alterações no código para otimizar o aplicativo no Windows 10.
+    - Quleques mudanças gráficas.
+    - Foi adicionada uma ferramenta para criptografar e descriptografar os arquivos.
+    - Indicação do espaço ocupado por compartilhar senhas (se for superior a 100%, a sincronização não será mais (limite imposto pelo sistema, infelizmente :-()
+
+Versão 1.4.0.0:
+    - Alterar a ferramenta de importação.
+    - Corrigido bugs.
+    - Criação do lançamento do Windows 10.
+
+Versão 1.3.1.0:
+    - Adicionado um botão para a tela inicial para redefinir a aplicação em caso de perda da senha mestra.
+
+Versão 1.3.0.0:
+    - Adição de links para websites
+    - Senhas em Movimento
+    - Melhorias gráficas (Windows versão 8)
+    - Alterar a pasta para a ferramenta de importação exportação (Windows versão 8)
+
+Versão 1.2.0.0:
+    - Correções de bugs
+    - Graphic Correções
+    - Ícones Adicionado
+    - Personalização de geração de senhas
+    - Adicionado um botão para enviar bugs ou sugestões
+    - Adicionado um botão para classifique o app
+    - Mudar o display (para WindowsRT)
+    - Adicione várias cores para o tema (para WindowsRT)
+
+Versão 1.1.0.0:
+    - Adicionadas informações relacionadas ao roaming
+    - Adicionado tradução em espanhol
+
+Versão 0.9.0.0:
+    - Gestão de arquivos e senhas
+    - Importar e exportar dados em CSV, XML e kwi
+    - Estabelecimento de línguas
+    - Implementação de roaming de dados</value>
+  </data>
+  <data name="textOutils.Text" xml:space="preserve">
+    <value>Ferramentas</value>
+  </data>
+  <data name="textParam.Text" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="textPT" xml:space="preserve">
+    <value>Português</value>
+  </data>
+  <data name="textTitre.Text" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="textVotreMDP.Text" xml:space="preserve">
+    <value>A sua senha</value>
+  </data>
+  <data name="titleAbout.Title" xml:space="preserve">
+    <value>Sobre ...</value>
+  </data>
+  <data name="textPolitiqueConf.Text" xml:space="preserve">
+    <value>Informações pessoais:
+Este aplicativo não coleta nenhuma informação pessoal que possa identificá-lo. Todas as informações são preenchidas explicitamente pelo usuário durante o uso do aplicativo. Nenhuma dessas informações é transmitida através de servidores de terceiros, feitas público ou compartilhado através da internet, o aplicativo não tinha direitos para se comunicar com a internet. Toda a informação recolhida é armazenada em um arquivo criptografado em uma pasta mas que permanecem em sua conta. Estes dados nunca deixar o seu ambiente e são transmitidos entre os dispositivos através do sistema de nuvem da Microsoft específico para sua conta de usuário.
+
+Dúvidas ou informações:
+Se você tiver alguma dúvida sobre a política de privacidade, você pode enviar uma mensagem para qdelfour@gmail.com o e-mail.</value>
+  </data>
+  <data name="textPolitiqueConfDesc.Text" xml:space="preserve">
+    <value>Política de privacidade</value>
+  </data>
+  <data name="contentSecurite.Content" xml:space="preserve">
+    <value>Registro de sua senha mestra</value>
+  </data>
+  <data name="textSecurite.Text" xml:space="preserve">
+    <value>Segurança</value>
+  </data>
+  <data name="textSecuriteDesc.Text" xml:space="preserve">
+    <value>Activando esta opção, você será capaz de ler suas senhas com Cortana e ativar a senha de recuperação de opção para a tela inicial em caso de perda da senha.</value>
+  </data>
+  <data name="cortanaAucunIdentifiant" xml:space="preserve">
+    <value>Desculpe, que eu não encontrei nenhum identificador.</value>
+  </data>
+  <data name="cortanaEchecFichier" xml:space="preserve">
+    <value>Desculpa, não consegui ler o arquivo.</value>
+  </data>
+  <data name="cortanaIdentifiantsTrouves" xml:space="preserve">
+    <value>Aqui estão os identificadores que encontrei.</value>
+  </data>
+  <data name="cortanaLanceApp" xml:space="preserve">
+    <value>Lançamento da pesquisa no aplicativo.</value>
+  </data>
+  <data name="cortanaPlusieursResultats" xml:space="preserve">
+    <value>Eu tenho vários resultados, abrir o aplicativo.</value>
+  </data>
+  <data name="contentCharger.Content" xml:space="preserve">
+    <value>Carga</value>
+  </data>
+  <data name="contentEffacer.Content" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="contentRecommencer.Content" xml:space="preserve">
+    <value>Começar de novo</value>
+  </data>
+  <data name="contentSupprimerTerminer.Content" xml:space="preserve">
+    <value>Apague tudo e terminar</value>
+  </data>
+  <data name="contentValiderTerminer.Content" xml:space="preserve">
+    <value>Validar e completar</value>
+  </data>
+  <data name="contentVerifier.Content" xml:space="preserve">
+    <value>Verifique</value>
+  </data>
+  <data name="textChargerImage.Text" xml:space="preserve">
+    <value>Carrega uma imagem:</value>
+  </data>
+  <data name="textDebloquagePass.Text" xml:space="preserve">
+    <value>Liberação da senha</value>
+  </data>
+  <data name="textEntrePoint.Text" xml:space="preserve">
+    <value>Entrar na foto abaixo e na ordem, os pontos que você salvou ao criar sua senha de imagem e confirme.</value>
+  </data>
+  <data name="textSelectPoint.Text" xml:space="preserve">
+    <value>Selecione entre três e nove pontos na imagem (a ordem é levada em conta):</value>
+  </data>
+  <data name="labelRecupMdp.Label" xml:space="preserve">
+    <value>Recuperar minha senha</value>
+  </data>
+  <data name="ParamRecupContent.Content" xml:space="preserve">
+    <value>Configuração de recuperação de senha</value>
+  </data>
+  <data name="contentParFichier.Content" xml:space="preserve">
+    <value>Por um arquivo </value>
+  </data>
+  <data name="contentPartage.Content" xml:space="preserve">
+    <value>Compartilhamento de </value>
+  </data>
+  <data name="contentPartageMdp.Content" xml:space="preserve">
+    <value>Senha de compartilhamento </value>
+  </data>
+  <data name="contentParTexte.Content" xml:space="preserve">
+    <value>Pelo texto </value>
+  </data>
+  <data name="contentRecupereMdp.Content" xml:space="preserve">
+    <value>Recuperar uma senha </value>
+  </data>
+  <data name="contentSelectionner.Content" xml:space="preserve">
+    <value>Selecione </value>
+  </data>
+  <data name="dialogChoixMdp.PrimaryButtonText" xml:space="preserve">
+    <value>Acabamento </value>
+  </data>
+  <data name="dialogChoixMdp.Title" xml:space="preserve">
+    <value>Escolha uma senha </value>
+  </data>
+  <data name="dialogEntreMdp.PrimaryButtonText" xml:space="preserve">
+    <value>Validar </value>
+  </data>
+  <data name="dialogEntreMdp.SecondaryButtonText" xml:space="preserve">
+    <value>Cancelar </value>
+  </data>
+  <data name="dialogEntreMdp.Title" xml:space="preserve">
+    <value>Digite sua senha </value>
+  </data>
+  <data name="dialogSelectFolder.PrimaryButtonText" xml:space="preserve">
+    <value>Selecione </value>
+  </data>
+  <data name="dialogSelectFolder.SecondaryButtonText" xml:space="preserve">
+    <value>Cancelar </value>
+  </data>
+  <data name="dialogSelectFolder.Title" xml:space="preserve">
+    <value>Selecione a pasta </value>
+  </data>
+  <data name="textAfficher" xml:space="preserve">
+    <value>Exposição </value>
+  </data>
+  <data name="textColler" xml:space="preserve">
+    <value>Colar </value>
+  </data>
+  <data name="textComment.Text" xml:space="preserve">
+    <value>Como? </value>
+  </data>
+  <data name="textCopier" xml:space="preserve">
+    <value>Cópia </value>
+  </data>
+  <data name="textEnvoyer" xml:space="preserve">
+    <value>Enviar </value>
+  </data>
+  <data name="textGenerer" xml:space="preserve">
+    <value>Gerar </value>
+  </data>
+  <data name="textInfoPartageMdpText.Text" xml:space="preserve">
+    <value>Os dados no campo acima abaixo contém suas senhas. Para compartilhar simplesmente para fornecer o texto no estado a pessoa a quem você deseja compartilhar informações. Permanecerá para inserir este texto nos campos abaixo abaixo mas em ter escolhido a opção de recuperação. </value>
+  </data>
+  <data name="textOutilsPartage.Text" xml:space="preserve">
+    <value>Ferramentas de compartilhamento </value>
+  </data>
+  <data name="textOuvrirFchier" xml:space="preserve">
+    <value>Abrir meu arquivo. </value>
+  </data>
+  <data name="textPartageFichier.Text" xml:space="preserve">
+    <value>Por arquivo </value>
+  </data>
+  <data name="textPartageMdp.Text" xml:space="preserve">
+    <value>Senha de compartilhamento</value>
+  </data>
+  <data name="textPartageTexte.Text" xml:space="preserve">
+    <value>Pelo texto </value>
+  </data>
+  <data name="textRecuperer" xml:space="preserve">
+    <value>Recuperar </value>
+  </data>
+  <data name="textRecupMotDePasse.Text" xml:space="preserve">
+    <value>Recuperação de senhas </value>
+  </data>
+  <data name="textSouhait.Text" xml:space="preserve">
+    <value>Eu gostaria de: </value>
+  </data>
+  <data name="labelPartager.Label" xml:space="preserve">
+    <value>Compartilhar</value>
+  </data>
+  <data name="contentAjouterIcon.Content" xml:space="preserve">
+    <value>Adicionar um ícone</value>
+  </data>
+  <data name="contentSupprimer.Content" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="textMesIcones.Text" xml:space="preserve">
+    <value>Meus ícones</value>
+  </data>
+  <data name="textCapsLock.Text" xml:space="preserve">
+    <value>maiùscula activada</value>
+  </data>
+</root>

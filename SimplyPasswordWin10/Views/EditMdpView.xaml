@@ -1,0 +1,82 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.EditMdpView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:SimplyPasswordWin10.Converter"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Storyboard x:Name="StoryboardOuvertureGenerateur">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="GridGenerateur">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="240"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="StoryboardFermetureGenerateur">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="GridGenerateur">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <converter:BoolCheckedConverter x:Key="ConverterBoolChecked"/>
+        <converter:BoolPasswordRevealConverter x:Key="ConverterBoolPasswordReveal"/>
+    </Page.Resources>
+
+    <Grid Background="Gainsboro" Margin="0,0,0,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="GridTitre" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="#FF009662" Margin="0,0,-0.429,0">
+            <Grid>
+                <Image Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/icon.png" />
+                <TextBlock x:Name="TitrePage" FontSize="26.667" Margin="60,10,0,0"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel MaxWidth="700" HorizontalAlignment="Center">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" x:Uid="textTitre" Margin="10,10,200,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+                        <TextBlock Grid.Row="0" x:Uid="textIcone" Margin="0,10,5,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="120"/>
+                        <TextBox Grid.Row="1" Text="{x:Bind ViewModel.Titre,Mode=TwoWay}"  Margin="8,15,130,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33"/>
+                        <ComboBox Grid.Row="1" x:Name="ComboIcone" ItemsSource="{x:Bind ViewModel.ListeIcone}" HorizontalAlignment="Right" Margin="0,2,5,0" VerticalAlignment="Top" Width="120" Height="67" SelectionChanged="comboIcone_SelectionChanged"/>
+                    </Grid>
+                    <TextBlock x:Uid="textIdentifiant" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBox Text="{x:Bind ViewModel.Login,Mode=TwoWay}" Margin="10,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Uid="mdp" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+                    <PasswordBox x:Name="PasswordTextBox" Password="{x:Bind ViewModel.Password,Mode=TwoWay}" PasswordRevealMode="{x:Bind ViewModel.IsMdpVisible,Mode=OneWay,Converter={StaticResource ConverterBoolPasswordReveal}}" Margin="10,5,10,0" VerticalAlignment="Top"/>
+        
+                    <Grid x:Name="GridGenerateur" HorizontalAlignment="Center" Height="0" Margin="5,0" VerticalAlignment="Top" Width="190" Canvas.ZIndex="1000" Background="#FFCFCFCF">
+                        <CheckBox x:Name="CheckLettres" x:Uid="contentCheckLettres" HorizontalAlignment="Left" Margin="7,22,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                        <CheckBox x:Name="CheckChiffres" x:Uid="contentCheckChiffres" HorizontalAlignment="Left" Margin="7,65,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                        <CheckBox x:Name="CheckSpec" x:Uid="contentCheckSpec" HorizontalAlignment="Left" Margin="7,104,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                        <Slider x:Name="LongueurSlider" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="170" Height="30" Maximum="32" Orientation="Horizontal" ValueChanged="longueurSlider_ValueChanged"/>
+                        <Button x:Name="ButtonGenereFin" x:Uid="contentGenerer" Content="" HorizontalAlignment="Left" Margin="7,197,0,-3" VerticalAlignment="Top" Height="42" Width="176" Click="buttonGenereFin_Click" Foreground="Black"/>
+                        <TextBlock x:Name="TextLongGen" HorizontalAlignment="Left" Margin="10,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="46" Foreground="Black"/>
+                    </Grid>
+
+                    <Grid Margin="10,5,10,0">
+                        <TextBlock Text="Force" x:Uid="textForce" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                        <ProgressBar Value="{x:Bind ViewModel.Force,Mode=OneWay}" Height="13" Margin="0,20,0,0" VerticalAlignment="Top" Width="257" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <CheckBox IsChecked="{x:Bind ViewModel.IsMdpVisible,Mode=TwoWay,Converter={StaticResource ConverterBoolChecked}}" x:Uid="contentAfficherMDP" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="GenererButton" x:Uid="contentGenerer" HorizontalAlignment="Stretch" Margin="10,5,10,0" VerticalAlignment="Top" Click="genererButton_Click"/>
+                    <TextBlock x:Uid="siteText" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBox Text="{x:Bind ViewModel.Site,Mode=TwoWay}" Margin="10,5,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                    <TextBlock x:Uid="textCommentaire" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBox Text="{x:Bind ViewModel.Commentaire,Mode=TwoWay}" Margin="10,5,10,0" VerticalAlignment="Top" Height="79"/>
+                    
+                    <Button x:Name="ValiderButton" x:Uid="contentValider" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Click="validerButton_Click"/>
+                    <ProgressRing x:Name="WaitRing"/>
+                </StackPanel>
+        </ScrollViewer>
+    </Grid>
+     </Grid>
+</Page>

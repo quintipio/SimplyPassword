@@ -1,0 +1,108 @@
+﻿<Page
+    x:Class="SimplyPasswordWin10.Views.OutilsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Gainsboro" Margin="0,0,0,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="GridTitre" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="#FF009662" Margin="0,0,0,0">
+            <Grid HorizontalAlignment="Left">
+                <Image Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/icon.png" />
+                <TextBlock x:Uid="textOutils" FontSize="26.667" Margin="60,10,0,0"/>
+            </Grid>
+        </Grid>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ListView HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="OpenImport_Click" HorizontalContentAlignment="Left" Width="300" Margin="0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <AppBarButton Grid.Row="0" Grid.Column="0" IsEnabled="False" Icon="Forward" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Uid="textImport" Text="Import" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="OpenExport_Click" HorizontalContentAlignment="Left" Width="300" Margin="0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <AppBarButton Grid.Row="0" Grid.Column="0" IsEnabled="False" Icon="Forward" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Uid="textExport" Text="Export" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="OpenDechiffrer_Click" HorizontalContentAlignment="Left" Width="300" Margin="0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <AppBarButton Grid.Row="0" Grid.Column="0" IsEnabled="False" Icon="Forward" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Uid="textDechiffre" Text="Dechiffrer un fichier" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="OpenChiffrer_Click" HorizontalContentAlignment="Left" Width="300" Margin="0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <AppBarButton Grid.Row="0" Grid.Column="0" IsEnabled="False" Icon="Forward" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Uid="textChiffre" Text="Chiffrer un fichier" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="OpenPartage_Click" HorizontalContentAlignment="Left" Width="300" Margin="0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <AppBarButton Grid.Row="0" Grid.Column="0" IsEnabled="False" Icon="Forward" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Uid="textOutilsPartage" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="OpenMesIcones_Click" HorizontalContentAlignment="Left" Width="300" Margin="0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <AppBarButton Grid.Row="0" Grid.Column="0" IsEnabled="False" Icon="Forward" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Uid="textMesIcones" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Button>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+</Page>
