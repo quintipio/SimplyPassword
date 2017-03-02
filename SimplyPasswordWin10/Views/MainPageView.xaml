@@ -36,8 +36,8 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
-        
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -55,7 +55,7 @@
                 <TextBlock x:Name="TitreText" Text="{x:Bind ViewModel.TitrePage,Mode=OneWay}" HorizontalAlignment="Left" Margin="60,10,0,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="Black" FontWeight="Bold" FontSize="20"/>
             </Grid>
         </Grid>
-        
+
         <!--contenu-->
         <Grid Grid.Row="1">
             <!--menu-->
@@ -176,7 +176,7 @@
                     <Grid Grid.Row="0" Grid.Column="0" >
 
                         <SearchBox QueryText="{x:Bind ViewModel.ChampsRecherche, Mode=TwoWay}" x:Name="SearchPassword" Grid.Column="0" Margin="70,0,0,4" Grid.Row="0"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="133" TabIndex="3000"  />
-                        <TextBlock x:Uid="mdp" Grid.Column="0" HorizontalAlignment="Left" Margin="70,0,0,0" TextWrapping="Wrap" Height="25" FontSize="20" Foreground="Black" Canvas.ZIndex="800" VerticalAlignment="Top" Text=""/>
+                        <!--<TextBlock x:Uid="mdp" Grid.Column="0" HorizontalAlignment="Left" Margin="70,0,0,0" TextWrapping="Wrap" Height="25" FontSize="20" Foreground="Black" Canvas.ZIndex="800" VerticalAlignment="Top" Text=""/>-->
                         <AppBarButton x:Name="AjouterMotDePasseButton" Grid.Column="0" HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Top" Height="60" Width="60" IsCompact="True" Icon="Add" Click="ajouterMDPButton_Click"/>
                     </Grid>
 
